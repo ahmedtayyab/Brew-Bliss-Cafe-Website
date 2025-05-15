@@ -9,14 +9,24 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="Index.html"> 
+            <a href="index.html"> 
                 <img src="Images/Logo.png" alt="Logo" class="navbar-logo">
             </a>
-            <a href="Index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="AboutUs.html">About Us</a>
             <a href="Contact.html">Contact</a>
             <a href="OurStory.html">Our Story</a>
             <a href="Menu.html">Menu</a>
+            <?php
+            session_start();
+            if (isset($_SESSION['user_name'])) {
+                echo '<span class="user-name">Welcome, ' . htmlspecialchars($_SESSION['user_name']) . '</span>';
+                echo '<a href="logout.php">Logout</a>';
+            } else {
+                echo '<a href="signin.html">Sign In</a>';
+                echo '<a href="signup.html">Sign Up</a>';
+            }
+            ?>
         </nav>
     </header>
 
@@ -41,7 +51,7 @@
             Cappuccino
             <section class="info-box">
                 <h3 style="margin-top: 70px;">Cappuccino</h3>
-                <p style="font-size: 15px; padding: 20px;">Cappuccino has a bold espresso flavor balanced with creamy, steamed milk and a frothy foam topping. It’s slightly bitter with a smooth, rich texture.</p>
+                <p style="font-size: 15px; padding: 20px;">Cappuccino has a bold espresso flavor balanced with creamy, steamed milk and a frothy foam topping. It's slightly bitter with a smooth, rich texture.</p>
                 <button class="order-button" style="width:max-content; background-color: #6e330b; color: white;">Order Now</button>
             </section>
         </article>
@@ -49,7 +59,7 @@
             Espresso
             <section class="info-box" >
                 <h3 style="margin-top: 70px;">Espresso</h3>
-                <p style="font-size: 15px; padding:20px;">Espresso is a strong, concentrated coffee with a bold, rich flavor. It’s slightly bitter, with hints of chocolate, caramel, and sometimes fruity acidity, topped with a smooth layer of crema.</p>
+                <p style="font-size: 15px; padding:20px;">Espresso is a strong, concentrated coffee with a bold, rich flavor. It's slightly bitter, with hints of chocolate, caramel, and sometimes fruity acidity, topped with a smooth layer of crema.</p>
                 <button class="order-button" style="width:max-content; background-color: #6e330b; color: white;">Order Now</button>
             </section>
         </article>
